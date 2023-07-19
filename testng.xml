@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testing-1.0.dtd">
+
+<suite name ="Shop Test Suite">
+    <test name="Microsoft Edge Browser Test">
+        <parameter name ="browser" value = "edge"/>
+        <parameter name = "url" value="https://magento.softwaretestingboard.com/"/>
+        <classes>
+            <class name ="testRunner.TestRunner"/>
+        </classes>
+    </test>
+    <test name="Google Chrome Browser Test">
+        <parameter name ="browser" value = "chrome"/>
+        <parameter name = "url" value="https://magento.softwaretestingboard.com/"/>
+        <classes>
+            <class name ="testRunner.TestRunner"/>
+        </classes>
+    </test>
+</suite>
