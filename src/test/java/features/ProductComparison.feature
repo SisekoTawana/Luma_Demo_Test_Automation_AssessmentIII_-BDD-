@@ -25,5 +25,3 @@ Feature: ProductComparison Feature
     Then I should see the word Compare Products
     And Click the remove icon and I should see the reassurance question pop-up
     And Click the OK button and I should see the confirmation of the removal
-
-  Scenario:

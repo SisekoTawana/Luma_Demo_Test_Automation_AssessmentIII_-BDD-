@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f62efb08-ea77-4bf6-86c1-c5d843bb38e6" name="Changes" comment="Gherkin keywords">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/features/AddThreeStarProductToCart.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestHooks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/msedgedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+    <list default="true" id="f62efb08-ea77-4bf6-86c1-c5d843bb38e6" name="Changes" comment="Step definitions">
+      <change afterPath="$PROJECT_DIR$/src/test/java/features/Login.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageObject/Luma Excel File.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utilities/ExcelHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/AddProductToCart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/AddProductToCart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/productComparison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testRunner/TestHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestHooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,16 +62,77 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\TAWANA SISEKO\LumaDemoBDD\src\test\java\pageObject" />
       <recent name="C:\Users\Public\TAWANA SISEKO\LumaDemoBDD\src\test\resources" />
       <recent name="C:\Users\Public\TAWANA SISEKO\LumaDemoBDD\target" />
       <recent name="C:\Users\Public\TAWANA SISEKO\LumaDemoBDD\src\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify if a user not logged in can add products to compare-MPV">
+  <component name="RunManager" selected="JUnit.TestRunner">
+    <configuration name="Scenario: Check user logged in can add product to cart using the search field" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/AddProductToCart.feature" />
+      <option name="GLUE" value="testRunner stepDefinition" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LumaDemoBDD" />
+      <option name="NAME_FILTER" value="^Check user logged in can add product to cart using the search field$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check user logged in can add product to cart using the search field$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check user logged in can add product to cart using the search field" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Check user not logged in can add a product to the shopping cart" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/AddProductToCart.feature" />
+      <option name="GLUE" value="testRunner stepDefinition" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LumaDemoBDD" />
+      <option name="NAME_FILTER" value="^Check user not logged in can add a product to the shopping cart$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check user not logged in can add a product to the shopping cart$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check user not logged in can add a product to the shopping cart" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Checking the user out" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/Checkout.feature" />
+      <option name="GLUE" value="testRunner stepDefinition" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="LumaDemoBDD" />
+      <option name="NAME_FILTER" value="^Checking the user out$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Checking the user out$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Checking the user out" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Scenario: Verify if a product can be removed from Compare Product list" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" />
-      <option name="GLUE" value="stepDefinition" />
+      <option name="GLUE" value="testRunner stepDefinition" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="LumaDemoBDD" />
       <option name="NAME_FILTER" value="^Verify if a product can be removed from Compare Product list$" />
@@ -90,82 +149,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verify if a user not logged in can add products to compare-MPV" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" />
-      <option name="GLUE" value="stepDefinition" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LumaDemoBDD" />
-      <option name="NAME_FILTER" value="^Verify if a user not logged in can add products to compare\-MPV$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify if a user not logged in can add products to compare\-MPV$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify if a user not logged in can add products to compare-MPV" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="PATTERN" value="testRunner.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Verify if a user not logged in can add products to compare-PDV" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" />
-      <option name="GLUE" value="stepDefinition" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LumaDemoBDD" />
-      <option name="NAME_FILTER" value="^Verify if a user not logged in can add products to compare\-PDV$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify if a user not logged in can add products to compare\-PDV$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify if a user not logged in can add products to compare-PDV" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Verify if a user not logged in can add products to compare" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="LumaDemoBDD" />
-      <option name="NAME_FILTER" value="^Verify if a user not logged in can add products to compare$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify if a user not logged in can add products to compare$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verify if a user not logged in can add products to compare" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="LumaDemoBDD" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="testRunner" />
+      <option name="MAIN_CLASS_NAME" value="testRunner.TestRunner" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Verify if a user not logged in can add products to compare-MPV" />
-        <item itemvalue="TestNG.C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/testng.xml" />
+        <item itemvalue="JUnit.TestRunner" />
         <item itemvalue="Cucumber Java.Scenario: Verify if a product can be removed from Compare Product list" />
-        <item itemvalue="Cucumber Java.Scenario: Verify if a user not logged in can add products to compare-PDV" />
-        <item itemvalue="Cucumber Java.Scenario: Verify if a user not logged in can add products to compare" />
+        <item itemvalue="Cucumber Java.Scenario: Check user logged in can add product to cart using the search field" />
+        <item itemvalue="Cucumber Java.Scenario: Check user not logged in can add a product to the shopping cart" />
+        <item itemvalue="Cucumber Java.Scenario: Checking the user out" />
       </list>
     </recent_temporary>
   </component>
@@ -192,12 +197,20 @@
       <option name="project" value="LOCAL" />
       <updated>1689685246954</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Step definitions">
+      <created>1689771089961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689771089961</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Radient Tees" />
     <MESSAGE value="Gherkin keywords" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gherkin keywords" />
+    <MESSAGE value="Step definitions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step definitions" />
   </component>
 </project>
