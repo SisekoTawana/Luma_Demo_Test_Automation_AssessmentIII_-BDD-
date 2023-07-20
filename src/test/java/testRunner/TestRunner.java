@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {
                 "src/test/java/features/ProductComparison.feature",
+                "src/test/java/features/Login.feature",
                 "src/test/java/features/AddProductToCart.feature",
                 "src/test/java/features/Checkout.feature",
                 "src/test/java/features/AddThreeStarProductToCart.feature",

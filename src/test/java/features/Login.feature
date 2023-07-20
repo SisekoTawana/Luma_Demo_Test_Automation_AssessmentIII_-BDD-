@@ -5,3 +5,5 @@ Feature: Logging in
     Given I am on the home page
     When Navigate and click sign in
     And I should see Customer Login
+    And Enter Email, Password and Click Sign In
+    Then I should see the word Welcome

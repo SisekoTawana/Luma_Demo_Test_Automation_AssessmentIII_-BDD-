@@ -12,7 +12,7 @@ public class ExcelHelper {
     public static void setupExcel() {
         try {
 
-            workbook = new XSSFWorkbook("src/test/java/data/Luma Excel File.xlsx");
+            workbook = new XSSFWorkbook("src/test/java/pageObject/Luma Excel File.xlsx");
             sheet = workbook.getSheet("Luma Test Data");
         } catch(IOException e){
             throw new RuntimeException(e);

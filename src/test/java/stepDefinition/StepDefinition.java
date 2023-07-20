@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -17,11 +18,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Parameters;
 import testRunner.TestHooks;
 import utilities.ExcelHelper;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class StepDefinition {
@@ -38,16 +45,60 @@ public class StepDefinition {
 //        this.driver = driver;
     }
 
+    @Parameters({"browser","url"})
     @Before
-    public void setUp() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/src/test/resources/chromedriver.exe");
+    public void setUp(String browser, String url) throws InterruptedException {
+        /*System.setProperty("webdriver.chrome.driver", "C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/src/test/resources/chromedriver.exe");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.get("https://magento.softwaretestingboard.com/");
         driver.manage().window().maximize();
-        Thread.sleep(3000);
+        Thread.sleep(3000);*/
+        try {
+
+            if (browser.equalsIgnoreCase("Chrome")) {
+                System.setProperty("webdriver.chrome.driver", "C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/src/test/resources/chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(options);
+                driver.get("https://magento.softwaretestingboard.com/");
+            } else if (browser.equalsIgnoreCase("Edge")) {
+                System.setProperty("webdriver.chrome.driver", "C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/src/test/resources/chromedriver.exe");
+                WebDriverManager.edgedriver().setup();
+                EdgeOptions options = new EdgeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new EdgeDriver(options);
+                driver.get("https://magento.softwaretestingboard.com/");
+            } else {
+                throw new RuntimeException("Browser name '" + browser + "'could not be found. Check spelling");
+            }
+
+            driver.manage().window().maximize();
+
+            ExtentReports extentReports = new ExtentReports();
+            ExtentSparkReporter sparkReporter = new ExtentSparkReporter("LumaTestReport.html");
+            extentReports.attachReporter(sparkReporter);
+            extentReports.setSystemInfo("Browser", browser);
+            extentReports.setSystemInfo("URL", url);
+
+            String fileSeparator = System.getProperty("file.separator");
+            String file = System.getProperty("user.dir") + fileSeparator + "src" + fileSeparator + "test" + fileSeparator + "java" + fileSeparator + "reporting" + fileSeparator + "LumaTestReport_"
+                    + LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyy_HH.mm.ss")) + ".html";
+            htmlReport = new ExtentSparkReporter(file);
+            extent = new ExtentReports();
+            extent.attachReporter(htmlReport);
+            //ExtentReports - configuration items to change the look and feel
+            htmlReport.config().setDocumentTitle("Demo shop Automation Report 2");
+            htmlReport.config().setReportName("Test Report");
+            htmlReport.config().setTheme(Theme.DARK);
+            htmlReport.config().setTimeStampFormat("EEEE, MMM dd, yyyy, hh:mm a '('zzz')'");
+        } catch (Exception e) {
+            org.testng.Assert.fail("something went wrong during setup " + e);
+            throw new RuntimeException(e);
+        }
 
         excelData = new ExcelHelper();
         excelData.setupExcel();
@@ -80,15 +131,6 @@ public class StepDefinition {
 
     @Given("I am on the home page")
     public void i_am_on_the_home_page() throws InterruptedException {
-//        WebDriver driver = TestHooks.driver;
-        /*System.setProperty("webdriver.chrome.driver", "C:/Users/Public/TAWANA SISEKO/LumaDemoBDD/src/test/resources/chromedriver.exe");
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver.get("https://magento.softwaretestingboard.com/");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);*/
         driver.findElement(By.xpath("(//img)[1]")).click();
         Thread.sleep(3000);
     }
@@ -244,9 +286,11 @@ public class StepDefinition {
 
     @When("Navigate the search field and enter Miko Pullover Hoodie")
     public void navigateTheSearchFieldAndEnterMikoPulloverHoodie() throws InterruptedException {
+        String productName = excelData.getCellData(1, 11);
+
         WebElement search = driver.findElement(By.xpath("(//input[@id='search'])[1]"));
         search.clear();
-        driver.findElement(By.xpath("(//input[@id='search'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='search'])[1]")).sendKeys(productName);
         Thread.sleep(3000);
     }
 
@@ -286,33 +330,42 @@ public class StepDefinition {
 
     @Then("Enter First name, Last name, Company, Street address, City, Province, Postal Code, Country, Phone number and Click the next button")
     public void enterFirstNameLastNameCompanyStreetAddressCityProvincePostalCodeCountryPhoneNumberAndClickTheNextButton() throws InterruptedException {
+        String FirstName = excelData.getCellData(1, 2);
+        String LastName = excelData.getCellData(1, 3);
+        String Company = excelData.getCellData(1, 4);
+        String Address = excelData.getCellData(1, 5);
+        String City = excelData.getCellData(1, 6);
+        String Province = excelData.getCellData(1, 7);
+        String Code = excelData.getCellData(1, 8);
+        String Phone = excelData.getCellData(1, 10);
+
         WebElement fName = driver.findElement(By.xpath("(//input[@id='GY2E0DB'])[1]"));
         fName.clear();
-        driver.findElement(By.xpath("(//input[@id='GY2E0DB'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='GY2E0DB'])[1]")).sendKeys(FirstName);
         Thread.sleep(3000);
         WebElement lName = driver.findElement(By.xpath("(//input[@id='Y2BYPH9'])[1]"));
         lName.clear();
-        driver.findElement(By.xpath("(//input[@id='Y2BYPH9'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='Y2BYPH9'])[1]")).sendKeys(LastName);
         Thread.sleep(3000);
         WebElement company = driver.findElement(By.xpath("(//input[@id='FTU1PCW'])[1]"));
         company.clear();
-        driver.findElement(By.xpath("(//input[@id='FTU1PCW'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='FTU1PCW'])[1]")).sendKeys(Company);
         Thread.sleep(3000);
         WebElement street = driver.findElement(By.xpath("(//input[@id='PBE92LQ'])[1]"));
         street.clear();
-        driver.findElement(By.xpath("(//input[@id='PBE92LQ'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='PBE92LQ'])[1]")).sendKeys(Address);
         Thread.sleep(3000);
         WebElement city = driver.findElement(By.xpath("(//input[@id='V6N6V8W'])[1]"));
         city.clear();
-        driver.findElement(By.xpath("(//input[@id='V6N6V8W'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='V6N6V8W'])[1]")).sendKeys(City);
         Thread.sleep(3000);
         WebElement province = driver.findElement(By.xpath("(//input[@id='UAAGOKH'])[1]"));
         province.clear();
-        driver.findElement(By.xpath("(//input[@id='UAAGOKH'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='UAAGOKH'])[1]")).sendKeys(Province);
         Thread.sleep(3000);
         WebElement code = driver.findElement(By.xpath("(//input[@id='QJ4NN09'])[1]"));
         code.clear();
-        driver.findElement(By.xpath("(//input[@id='QJ4NN09'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='QJ4NN09'])[1]")).sendKeys(Code);
         Thread.sleep(3000);
         driver.findElement(By.xpath("(//select[@id='NMLFNGW'])[1]")).click();
         Thread.sleep(1500);
@@ -320,7 +373,7 @@ public class StepDefinition {
         Thread.sleep(3000);
         WebElement phone = driver.findElement(By.xpath("(//input[@id='H28R7YU'])[1]"));
         phone.clear();
-        driver.findElement(By.xpath("(//input[@id='H28R7YU'])[1]")).sendKeys();
+        driver.findElement(By.xpath("(//input[@id='H28R7YU'])[1]")).sendKeys(Phone);
         Thread.sleep(3000);
         driver.findElement(By.xpath("(//span[normalize-space()='Next'])[1]")).click();
         Thread.sleep(3000);
@@ -398,6 +451,30 @@ public class StepDefinition {
         WebElement login = driver.findElement(By.xpath("(//span[@class='base'])[1]"));
         String expected = "Customer Login";
         String actual = login.getText();
+        Assert.assertEquals(expected,actual);
+    }
+
+    @And("Enter Email, Password and Click Sign In")
+    public void enterEmailPasswordAndClickSignIn() throws InterruptedException {
+        String Email = excelData.getCellData(1, 8);
+        String Password = excelData.getCellData(1, 10);
+
+        WebElement EmailElement = driver.findElement(By.xpath("(//input[@id='email'])[1]"));
+        EmailElement.clear();
+        driver.findElement(By.xpath("(//input[@id='email'])[1]")).sendKeys(Email);
+        Thread.sleep(2000);
+        WebElement password = driver.findElement(By.xpath("(//input[@id='email'])[1]"));
+        password.clear();
+        driver.findElement(By.xpath("(//input[@id='email'])[1]")).sendKeys(Password);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//span[contains(text(),'Sign In')])[1]")).click();
+    }
+
+    @Then("I should see the word Welcome")
+    public void iShouldSeeTheWordWelcome() {
+        WebElement welcomeMessage = driver.findElement(By.xpath("(//span[@class='logged-in'][normalize-space()='Welcome, Seko Msuthu!'])[1]"));
+        String expected = "Welcome, Seko Msuthu!";
+        String actual = welcomeMessage.getText();
         Assert.assertEquals(expected,actual);
     }
 }

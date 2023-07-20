@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f62efb08-ea77-4bf6-86c1-c5d843bb38e6" name="Changes" comment="Step definitions">
-      <change afterPath="$PROJECT_DIR$/src/test/java/features/Login.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pageObject/Luma Excel File.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utilities/ExcelHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/Login.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testRunner/TestHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestHooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ExcelHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ExcelHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,12 +199,34 @@
       <option name="project" value="LOCAL" />
       <updated>1689771089961</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Step definitions">
+      <created>1689859946129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689859946129</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Step definitions">
+      <created>1689859962955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689859962955</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Step definitions">
+      <created>1689860088227</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689860088227</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Radient Tees" />
     <MESSAGE value="Gherkin keywords" />
+    <MESSAGE value="Excel helper, worked on step definition,added other features" />
     <MESSAGE value="Step definitions" />
     <option name="LAST_COMMIT_MESSAGE" value="Step definitions" />
   </component>
