@@ -32,14 +32,13 @@ Feature: Shopping Cart Functionality
     Then I should see the message confirming that Hero Hoodie is added
     And Click the shopping cart link and I should see the word Shipping Cart
 
-  Scenario: Use valid credentials to log in the website
+  Scenario: Use valid credentials to log in the website and Verify if a user logged in can add product to compare multiple products view without selecting its size and colour
     Given I am on the home page
     When Navigate and click sign in
     And I should see Customer Login
     And Enter Email, Password and Click Sign In
     Then I should see the word Welcome
-
-  Scenario: Verify if a user logged in can add product to compare multiple products view without selecting its size and colour
+ # Scenario: Verify if a user logged in can add product to compare multiple products view without selecting its size and colour
     Given I am on the home page
     When Scroll down, hover over the Men tab and Tops tab
     And Click the Tees tab and I should see the word Tees
@@ -49,14 +48,18 @@ Feature: Shopping Cart Functionality
 
   Scenario: Check user logged in can add product to cart using the search field
     Given I am on the home page
+    When Navigate and click sign in
+    And I should see Customer Login
+    And Enter Email, Password and Click Sign In
+    Then I should see the word Welcome
+    Given I am on the home page
     When Navigate the search field and enter Miko Pullover Hoodie
     And Click the search icon and I should see the message for the search
     Then Click the Miko Pullover Hoodie, Select the product size, Select the product color
     And Add to cart the Miko Pullover Hoodie
     And I should see the message confirming that Miko Pullover Hoodie is added
     And Click the shopping cart link and I should see the word Shipping Cart
-
-  Scenario: Checking the user out
+  #Scenario: Checking the user out
     Given I am on the home page
     When Navigate to the cart icon and click it
     And Navigate to the proceed to checkout button and click it

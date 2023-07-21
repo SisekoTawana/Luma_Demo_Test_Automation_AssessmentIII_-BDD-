@@ -1,8 +1,10 @@
 package testRunner;
 
+import com.aventstack.extentreports.ExtentReports;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
+import reporting.Reporting;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -19,5 +21,8 @@ import org.junit.runner.RunWith;
 
 )
 public class TestRunner {
-
+        public static void main(String[] args) {
+                ExtentReports extent = Reporting.getInstance();
+                extent.flush();
+        }
 }
