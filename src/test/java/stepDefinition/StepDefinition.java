@@ -56,7 +56,7 @@ public class StepDefinition {
         driver.get("https://magento.softwaretestingboard.com/");
         driver.manage().window().maximize();
 
-        /*ExtentReports extentReports = new ExtentReports();
+        ExtentReports extentReports = new ExtentReports();
         ExtentSparkReporter sparkReporter = new ExtentSparkReporter("LumaTestReport.html");
         extentReports.attachReporter(sparkReporter);
         extentReports.setSystemInfo("Browser", browser);
@@ -73,7 +73,7 @@ public class StepDefinition {
         htmlReport.config().setReportName("Test Report");
         htmlReport.config().setTheme(Theme.DARK);
         htmlReport.config().setTimeStampFormat("EEEE, MMM dd, yyyy, hh:mm a '('zzz')'");
-*/
+
         excelData = new ExcelHelper();
         excelData.setupExcel();
 
