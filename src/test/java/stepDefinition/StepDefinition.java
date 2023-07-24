@@ -153,14 +153,11 @@ public class StepDefinition {
     @And("Click the search icon and I should see the message for the search")
     public void clickTheSearchIconAndIShouldSeeTheMessageForTheSearch() throws InterruptedException {
         driver.findElement(By.xpath("(//span[normalize-space()='Miko Pullover Hoodie'])[1]")).click();
-        /*(//span[@class='qs-option-name selected'])[1]*/
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
         WebElement result = driver.findElement(By.xpath("(//span[@class='base'])[1]"));
         String expected = "Search results for: 'Miko Pullover Hoodie'";
         String actual = result.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
     }
 
     @When("Scroll down, hover over the Hero Hoodie, Select the product size,Select the product color")
@@ -169,13 +166,10 @@ public class StepDefinition {
         WebElement hover = driver.findElement(By.xpath("(//img[@alt='Hero Hoodie'])[1]"));
         actions.moveToElement(hover).build().perform();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
         driver.findElement(By.xpath("(//div[@id='option-label-size-143-item-168'])[4]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
         driver.findElement(By.xpath("(//div[@id='option-label-color-93-item-53'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
     }
 
     @Then("Click the Miko Pullover Hoodie, Select the product size, Select the product color")
