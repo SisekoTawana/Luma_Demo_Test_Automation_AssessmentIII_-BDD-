@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f62efb08-ea77-4bf6-86c1-c5d843bb38e6" name="Changes" comment="Friday">
-      <change afterPath="$PROJECT_DIR$/src/test/java/reporting/Reporting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/Shopping_Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/Shopping_Cart.feature" afterDir="false" />
+    <list default="true" id="f62efb08-ea77-4bf6-86c1-c5d843bb38e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/features/Shopping_Cart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/AddProductToCart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/AddProductToCart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/AddThreeStarProductToCart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/AddThreeStarProductToCart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/Checkout.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/Login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/ProductComparison.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Luma Excel File.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Luma Excel File.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinition/StepDefinition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testRunner/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/extent.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5214d7fe-5174-4825-8383-290f00555c5e" />
+        <option name="url" value="https://github.com/SisekoTawana/Luma_Demo_Test_Automation_AssessmentIII_-BDD-.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
