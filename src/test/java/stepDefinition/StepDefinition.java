@@ -4,7 +4,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -20,17 +19,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import reporting.Reporting;
-import testRunner.TestHooks;
 import utilities.ExcelHelper;
 import utilities.actionHelper;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.io.IOException;
 
 public class StepDefinition {
 
@@ -79,9 +74,10 @@ public class StepDefinition {
         }
 }
     @After
-    public void tearDown() {
+    public void tearDown() throws IOException {
         if (driver != null) {
             driver.quit();
+            Reporting.FlushReport();
         }
     }
 
@@ -94,13 +90,14 @@ public class StepDefinition {
     @When("Scroll down, hover over the Radiant Tee and Click the add to compare link")
     public void scroll_down_hover_over_the_radiant_tee_and_click_the_add_to_compare_link() throws InterruptedException {
         test = extent.createTest("Scenario Name: gdhsgfgsdkfkd");
+        test.log(Status.INFO, "Add Radiant Tees");
+        test.log(Status.INFO, "Take screenshot");
         actions = new Actions(driver);
         WebElement hover = driver.findElement(By.xpath("(//img[@alt='Radiant Tee'])[1]"));
         actions.moveToElement(hover).build().perform();
-        test.log(Status.INFO, "Add Radiant Tees");
         driver.findElement(By.xpath("(//a[@title='Add to Compare'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
 
     }
 
@@ -108,33 +105,37 @@ public class StepDefinition {
     public void click_the_comparison_list_link() throws InterruptedException {
         driver.findElement(By.xpath("(//a[normalize-space()='comparison list'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @When("Scroll down, Click on Breath-Easy Tank")
     public void scrollDownClickOnBreathEasyTank() throws InterruptedException {
+        test = extent.createTest("Scenario Name: ygfhdfhsshgfhfgfh");
+        test.log(Status.INFO, "jkhkjhkgfkghjhgj Tees");
+        test.log(Status.INFO, "Taking screenshot");
         driver.findElement(By.xpath("(//a[normalize-space()='Breathe-Easy Tank'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @When("Scroll down, Click on Argus All-Weather Tank")
     public void scrollDownClickOnArgusAllWeatherTank() throws InterruptedException {
+        test = extent.createTest("Scenario Name: me");
         driver.findElement(By.xpath("(//a[normalize-space()='Argus All-Weather Tank'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Click the remove icon and I should see the reassurance question pop-up")
     public void clickTheRemoveIconAndIShouldSeeTheReassuranceQuestionPopUp() throws InterruptedException {
         driver.findElement(By.xpath("(//a[@title='Remove Product'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         WebElement assuranceMessage = driver.findElement(By.xpath("(//div[contains(text(),'Are you sure you want to remove this item from you')])[1]"));
         String expected = "Are you sure you want to remove this item from your Compare Products list?";
         String actual = assuranceMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
 
     }
 
@@ -142,12 +143,12 @@ public class StepDefinition {
     public void clickTheOKButtonAndIShouldSeeTheConfirmationOfTheRemoval() throws InterruptedException {
         driver.findElement(By.xpath("(//span[normalize-space()='OK'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         WebElement confimationMessage = driver.findElement(By.xpath("(//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)'])[1]"));
         String expected = "You removed product Argus All-Weather Tank from the comparison list.";
         String actual = confimationMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Click the search icon and I should see the message for the search")
@@ -162,6 +163,9 @@ public class StepDefinition {
 
     @When("Scroll down, hover over the Hero Hoodie, Select the product size,Select the product color")
     public void scrollDownHoverOverTheHeroHoodieSelectTheProductSizeSelectTheProductColor() throws InterruptedException {
+        test = extent.createTest("Scenario Name: gdfgfdgdfgdfsgsgfgsdgfgdfg");
+        test.log(Status.INFO, "hvdgfdggfdfdggfdb Tees");
+        test.log(Status.INFO, "Taking screenshot");
         actions = new Actions(driver);
         WebElement hover = driver.findElement(By.xpath("(//img[@alt='Hero Hoodie'])[1]"));
         actions.moveToElement(hover).build().perform();
@@ -177,13 +181,13 @@ public class StepDefinition {
 //        Thread.sleep(3000);
         driver.findElement(By.xpath("(//a[@class='product-item-link'][normalize-space()='Miko Pullover Hoodie'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("(//div[@id='option-label-size-143-item-167'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("(//div[@id='option-label-color-93-item-56'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @Then("I should see the word Compare Products")
@@ -192,14 +196,14 @@ public class StepDefinition {
         String expected = "Compare Products";
         String actual = compareProduct.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Add to compare the Breath-Easy Tank")
     public void addToCompareTheBreathEasyTank() throws InterruptedException {
         driver.findElement(By.xpath("(//span[contains(text(),'Add to Compare')])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
 
@@ -209,14 +213,14 @@ public class StepDefinition {
         String expected = "You added product Breathe-Easy Tank to the comparison list.";
         String actual = appearingMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Add to compare the Argus All-Weather Tank")
     public void addToCompareTheArgusAllWeatherTank() throws InterruptedException {
         driver.findElement(By.xpath("(//span[contains(text(),'Add to Compare')])[1]")).click();
         Thread.sleep(5000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("I should see a success message for Argus All-Weather Tank")
@@ -225,7 +229,7 @@ public class StepDefinition {
         String expected = "You added product Argus All-Weather Tank to the comparison list.";
         String actual = appearingMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("I should see a success message for Radiant Tee")
@@ -234,14 +238,14 @@ public class StepDefinition {
         String expected = "You added product Radiant Tee to the comparison list.";
         String actual = appearingMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Add to cart the Hero Hoodie")
     public void addToCartTheHeroHoodie() throws InterruptedException {
         driver.findElement(By.xpath("(//span[contains(text(),'Add to Cart')])[4]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @Then("I should see the message confirming that Hero Hoodie is added")
@@ -250,37 +254,40 @@ public class StepDefinition {
         String expected = "You added Hero Hoodie to your shopping cart.";
         String actual = appearingMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Click the shopping cart link and I should see the word Shipping Cart")
     public void clickTheShoppingCartLinkAndIShouldSeeTheWordShippingCart() throws InterruptedException {
         driver.findElement(By.xpath("(//a[normalize-space()='shopping cart'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         WebElement shoppingCart = driver.findElement(By.xpath("(//span[@class='base'])[1]"));
         String expected = "Shopping Cart";
         String actual = shoppingCart.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @When("Navigate the search field and enter Miko Pullover Hoodie")
     public void navigateTheSearchFieldAndEnterMikoPulloverHoodie() throws InterruptedException {
+        test = extent.createTest("Scenario Name: gfdgfgghgfhbjhd");
+        test.log(Status.INFO, "hvfggfdgdfgggfg Tees");
+        test.log(Status.INFO, "Taking screenshot");
         String productName = excelData.getCellData(1, 11);
 
         WebElement search = driver.findElement(By.xpath("(//input[@id='search'])[1]"));
         search.clear();
         driver.findElement(By.xpath("(//input[@id='search'])[1]")).sendKeys(productName);
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Add to cart the Miko Pullover Hoodie")
     public void addToCartTheMikoPulloverHoodie() throws InterruptedException {
         driver.findElement(By.xpath("(//span[normalize-space()='Add to Cart'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("I should see the message confirming that Miko Pullover Hoodie is added")
@@ -290,21 +297,21 @@ public class StepDefinition {
         String expected = "You added Miko Pullover Hoodie to your shopping cart.";
         String actual = appearingMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @When("Navigate to the cart icon and click it")
     public void navigateToTheCartIconAndClickIt() throws InterruptedException {
         driver.findElement(By.xpath("(//a[@class='action showcart'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Navigate to the proceed to checkout button and click it")
     public void navigateToTheProceedToCheckoutButtonAndClickIt() throws InterruptedException {
         driver.findElement(By.xpath("(//button[normalize-space()='Proceed to Checkout'])[1]")).click();
         Thread.sleep(3000);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("I should see the word Order Summary")
@@ -313,7 +320,7 @@ public class StepDefinition {
         String expected = "Order Summary";
         String actual = appearingWords.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @Then("Enter First name, Last name, Company, Street address, City, Province, Postal Code, Country, Phone number and Click the next button")
@@ -330,41 +337,41 @@ public class StepDefinition {
         WebElement fName = driver.findElement(By.xpath("(//input[@id='GY2E0DB'])[1]"));
         fName.clear();
         driver.findElement(By.xpath("(//input[@id='GY2E0DB'])[1]")).sendKeys(FirstName);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement lName = driver.findElement(By.xpath("(//input[@id='Y2BYPH9'])[1]"));
         lName.clear();
         driver.findElement(By.xpath("(//input[@id='Y2BYPH9'])[1]")).sendKeys(LastName);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement company = driver.findElement(By.xpath("(//input[@id='FTU1PCW'])[1]"));
         company.clear();
         driver.findElement(By.xpath("(//input[@id='FTU1PCW'])[1]")).sendKeys(Company);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement street = driver.findElement(By.xpath("(//input[@id='PBE92LQ'])[1]"));
         street.clear();
         driver.findElement(By.xpath("(//input[@id='PBE92LQ'])[1]")).sendKeys(Address);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement city = driver.findElement(By.xpath("(//input[@id='V6N6V8W'])[1]"));
         city.clear();
         driver.findElement(By.xpath("(//input[@id='V6N6V8W'])[1]")).sendKeys(City);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement province = driver.findElement(By.xpath("(//input[@id='UAAGOKH'])[1]"));
         province.clear();
         driver.findElement(By.xpath("(//input[@id='UAAGOKH'])[1]")).sendKeys(Province);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement code = driver.findElement(By.xpath("(//input[@id='QJ4NN09'])[1]"));
         code.clear();
         driver.findElement(By.xpath("(//input[@id='QJ4NN09'])[1]")).sendKeys(Code);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("(//select[@id='NMLFNGW'])[1]")).click();
-        Thread.sleep(1500);actionHelper.talkScreenshot(driver);
+        Thread.sleep(1500);actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("//option[@value='ZA']")).click();
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement phone = driver.findElement(By.xpath("(//input[@id='H28R7YU'])[1]"));
         phone.clear();
         driver.findElement(By.xpath("(//input[@id='H28R7YU'])[1]")).sendKeys(Phone);
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("(//span[normalize-space()='Next'])[1]")).click();
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
     }
 
     @And("I should see Ship To: and click the place order button")
@@ -373,9 +380,9 @@ public class StepDefinition {
         String expected = "Ship To:";
         String actual = appearingWords.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("(//span[normalize-space()='Place Order'])[1]")).click();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         Thread.sleep(3000);
     }
 
@@ -385,32 +392,35 @@ public class StepDefinition {
         String expected = "Thank you for your purchase!";
         String actual = appearingWords.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @When("Scroll down, hover over the Men tab and Tops tab")
     public void scrollDownHoverOverTheMenTabAndTopsTab() throws InterruptedException {
+        test = extent.createTest("Scenario Name: mnjbbjnk");
+        test.log(Status.INFO, "hjsdfhdfsh Tees");
+        test.log(Status.INFO, "Taking screenshot");
         actions = new Actions(driver);
         WebElement men = driver.findElement(By.xpath("(//a[@id='ui-id-5'])[1]"));
         actions.moveToElement(men).perform();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         Thread.sleep(5000);
         //Hover on top
         WebElement tops = driver.findElement(By.xpath("(//a[@id='ui-id-17'])[1]"));
         actions.moveToElement(tops).build().perform();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         Thread.sleep(5000);
     }
 
     @And("Click the Tees tab and I should see the word Tees")
     public void clickTheTeesTabAndIShouldSeeTheWordTees() throws InterruptedException {
         driver.findElement(By.xpath("(//a[@id='ui-id-21'])[1]")).click();
-        Thread.sleep(3000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(3000);actionHelper.takeScreenshot(driver);
         WebElement tees = driver.findElement(By.xpath("(//span[@class='base'])[1]"));
         String expected = "Tees";
         String actual = tees.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Hover over the Logan HeatTec Tee")
@@ -418,14 +428,14 @@ public class StepDefinition {
         actions = new Actions(driver);
         WebElement hover = driver.findElement(By.xpath("(//div[contains(@class,'price-box price-final_price')])[3]"));
         actions.moveToElement(hover).build().perform();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         Thread.sleep(3000);
     }
 
     @And("Click the add to cart button")
     public void clickTheAddToCartButton() throws InterruptedException {
         driver.findElement(By.xpath("(//span[contains(text(),'Add to Cart')])[3]")).click();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         Thread.sleep(5000);
     }
 
@@ -435,13 +445,13 @@ public class StepDefinition {
         String expected = "You need to choose options for your item.";
         String actual = error.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @When("Navigate and click sign in")
     public void navigateAndClickSignIn() {
         driver.findElement(By.xpath("(//a[contains(text(),'Sign In')])[1]")).click();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("I should see Customer Login")
@@ -450,7 +460,7 @@ public class StepDefinition {
         String expected = "Customer Login";
         String actual = login.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 
     @And("Enter Email, Password and Click Sign In")
@@ -461,13 +471,13 @@ public class StepDefinition {
         WebElement EmailElement = driver.findElement(By.xpath("(//input[@id='email'])[1]"));
         EmailElement.clear();
         driver.findElement(By.xpath("(//input[@id='email'])[1]")).sendKeys(Email);
-        Thread.sleep(2000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(2000);actionHelper.takeScreenshot(driver);
         WebElement password = driver.findElement(By.xpath("(//input[@id='pass'])[1]"));
         password.clear();
         driver.findElement(By.xpath("(//input[@id='pass'])[1]")).sendKeys(Password);
-        Thread.sleep(2000);actionHelper.talkScreenshot(driver);
+        Thread.sleep(2000);actionHelper.takeScreenshot(driver);
         driver.findElement(By.xpath("(//span[contains(text(),'Sign In')])[1]")).click();
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
         Thread.sleep(2000);
     }
 
@@ -478,7 +488,7 @@ public class StepDefinition {
         String expected = "Welcome, Seko Msuthu!";
         String actual = welcomeMessage.getText();
         Assert.assertEquals(expected,actual);
-        actionHelper.talkScreenshot(driver);
+        actionHelper.takeScreenshot(driver);
     }
 }
 

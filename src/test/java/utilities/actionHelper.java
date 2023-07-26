@@ -15,7 +15,7 @@ public class actionHelper {
 
     }
 
-    public static String talkScreenshot(WebDriver driver) {
+    public static String takeScreenshot(WebDriver driver) {
         try {
             String fileSeparator = System.getProperty("file.separator");
             String extentReportsPath = System.getProperty("user.dir") + fileSeparator + "src"+ fileSeparator + "test" + fileSeparator + "java" + fileSeparator + "reporting";

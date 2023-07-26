@@ -4,12 +4,20 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Reporting {
-    private static ExtentReports extent;
+    public static ExtentReports extent;
+    static String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
     public static ExtentReports getInstance() {
         if (extent == null) {
-            createInstance("src/test/java/reporting/extentReport.html");
+            createInstance("src/test/java/reporting/extentReport_" + timestamp +".html");
+
         }
         return extent;
     }
@@ -22,5 +30,10 @@ public class Reporting {
         extent.attachReporter(htmlReporter);
 
         return extent;
+    }
+
+    public static void FlushReport() throws IOException {
+        extent.flush();
+//        Desktop.getDesktop().browse(new File("src/test/java/reporting/extentReport_\" + timestamp +\".html").toURI());
     }
 }
